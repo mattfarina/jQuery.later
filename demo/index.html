@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demos of jQuery.later</title>
+    <script src="jquery.js"></script>
+    <script src="../src/jquery.later.min.js"></script>
+    <script>
+      jQuery(function() {
+        /* Change the background color after 5 seconds. */
+        jQuery('#demo1').later(5000, 'css', 'background-color', '#999');
+
+        /* Go through a rainbow of colors. Stop when color 0 is reached. */
+        var yodel = jQuery('#demo2');
+        yodel.css('background-color', '#999')
+          .attr('yodel', 999)
+          .periodic('demo2', 100, function() {
+            var that = jQuery(this);
+            that.attr('yodel', that.attr('yodel') - 1)
+            that.css('background-color', '#' + that.attr('yodel'));
+
+            if (that.attr('yodel') == 0) {
+              yodel.periodicCancel('demo2');
+            }
+          });
+        });
+    </script>
+  </head>
+  <body>
+  	<div id="demo1">Demo 1</div>
+  	<div id="demo2">Demo 2</div>
+  </body>
+</html>
