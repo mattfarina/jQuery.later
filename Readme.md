@@ -18,20 +18,14 @@ Author: Matt Farina (http://www.mattfarina.com)
 
 Executing events at one later point in the future:
 
-`
-jQuery('#foo').later(5000, 'css', 'background-color', '#333');
-jQuery('#bar').later(1000, function(a, b) { this.css(a, b); return this; }, 'background-color', '#123');
-`
+     jQuery('#foo').later(5000, 'css', 'background-color', '#333');
+     jQuery('#bar').later(1000, function(a, b) { this.css(a, b); return this; }, 'background-color', '#123');
 
 Executing events periodically in the future:
 
-`
-jQuery('#foo').periodic('foo', 1000, 'css', 'background-color', '#333');
-jQuery('#foo').periodic('bar', 1500, 'css', 'background-color', '#123');
-`
+     jQuery('#foo').periodic('foo', 1000, 'css', 'background-color', '#333');
+     jQuery('#foo').periodic('bar', 1500, 'css', 'background-color', '#123');
 
 Canceling Periodic Events:
 
-`
-jQuery('#foo').periodicCancel('foo');
-`
+     jQuery('#foo').periodicCancel('foo');
