@@ -8,11 +8,9 @@ does.
 This is no substitution for the Queue in jQuery. This is for those times
 when the Queue is not appropriate.
 
-Dual licensed under the MIT and GPL licenses:
-  http://www.opensource.org/licenses/mit-license.php
-  http://www.gnu.org/licenses/gpl.html
+Dual licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) and [GPL](http://www.gnu.org/licenses/gpl.html) licenses:
 
-Author: Matt Farina (http://www.mattfarina.com)
+Author: [Matt Farina](http://www.mattfarina.com)
 
 ## Examples:
 
