@@ -13,7 +13,7 @@
  *   http://www.opensource.org/licenses/mit-license.php
  *   http://www.gnu.org/licenses/gpl.html
  */
-(function($) {
+(function($, window) {
 
   /*
    * Executes a jQuery function at a later point in time.
@@ -41,15 +41,15 @@
    *   Returns a jQuery object. This is meant to use in chaining.
    */
   $.fn.later = function(msec, method) {
-  	var that = this,
-	    args = Array.prototype.slice.apply(arguments, [2]);
-	if (typeof method === 'string') {
-	  method = that[method];
-	}
-	setTimeout(function() {
-	  method.apply(that, args);
-	}, msec);
-	return this;
+    var that = this,
+    args = Array.prototype.slice.apply(arguments, [2]);
+    if (typeof method === 'string') {
+      method = that[method];
+    }
+    window.setTimeout(function() {
+      method.apply(that, args);
+    }, msec);
+    return this;
   }
 
   /*
@@ -82,18 +82,16 @@
    */
   $.fn.periodic = function(name, msec, method) {
     var that = this,
-	    args = Array.prototype.slice.apply(arguments, [3]),
-	    interval = null;
-	if (typeof method === 'string') {
-	  method = that[method];
-	}
-	interval = setInterval(function () {
-	  method.apply(that, args);
-	}, msec);
-
-	this.data('jquery-periodic-' + name, interval);
-
-	return this;
+    args = Array.prototype.slice.apply(arguments, [3]),
+    interval = null;
+    if (typeof method === 'string') {
+      method = that[method];
+    }
+    interval = window.setInterval(function () {
+      method.apply(that, args);
+    }, msec);
+    this.data('jquery-periodic-' + name, interval);
+    return this;
   }
 
   /*
@@ -112,12 +110,11 @@
    *   Returns a jQuery object. This is meant to use in chaining.
    */
   $.fn.periodicCancel = function(name) {
-  	var data = this.data('jquery-periodic-' + name);
-  	if (data) {
-  	  clearInterval(data);
-  	  this.removeData('jquery-periodic-' + name);
-  	}
-  	
-  	return this;
+    var data = this.data('jquery-periodic-' + name);
+    if (data) {
+      window.clearInterval(data);
+      this.removeData('jquery-periodic-' + name);
+    }
+    return this;
   }
-})(jQuery);
+})(jQuery, window);
