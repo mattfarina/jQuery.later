@@ -1,5 +1,7 @@
 # jQuery Later - Chainable methods for later and periodic actions.
 
+*Note: if you are using jQuery 1.4+ consider using the [delay](http://api.jquery.com/delay/) method. This was useful to me before 1.4.*
+
 Sometimes you want to execute a jQuery method at some point in the future.
 Typically we use setTimeout and setInterval to achieve these actions. Wouldn't
 it be nice it these were chainable jQuery methods? That's what jQuery Later
